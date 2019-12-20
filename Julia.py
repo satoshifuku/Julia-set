@@ -23,8 +23,8 @@ def divergence_judge(z, c, limit_loop, divergence):
 
 
 def main():
-    s_Re = (-2.0, 2.0)
-    s_Im = (-2.5, 1.5)
+    s_Re = (-2.5, 1.5)
+    s_Im = (-2.0, 2.0)
 
     width = 500
     height = 500
