@@ -28,7 +28,7 @@ def main():
     
     s_Re = (center['re'] - 0.5*win_size['re'], center['re'] + 0.5*win_size['re'])
     s_Im = (center['im'] - 0.5*win_size['im'], center['im'] + 0.5*win_size['im'])
-    
+
     width = 500
     height = 500
 
@@ -43,7 +43,7 @@ def main():
 
     fig = pyplot.figure(figsize=(16, 12))
     ax1 = fig.add_subplot(111)
-    cs = ax1.pcolor(r2, r1, n3, cmap=pyplot.cm.nipy_spectral)
+    cs = ax1.pcolor(r1, r2, n3, cmap=pyplot.cm.nipy_spectral)
     # cbar = fig.colorbar(cs)
     fig.savefig('img.png', dpi=800)
     print('finished')
