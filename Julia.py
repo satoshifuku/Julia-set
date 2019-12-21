@@ -1,6 +1,6 @@
 import numpy as np
 import math
-from matplotlib import pyplot
+from matplotlib import pyplot as plt
 
 
 def mandelbrot(c, limit_loop, divergence=2):
@@ -41,9 +41,9 @@ def main():
         #             for j in range(height)]
         n3[i, :] = [mandelbrot(r1[j] + r2[i] * 1j, 200) for j in range(height)]
 
-    fig = pyplot.figure(figsize=(16, 12))
+    fig = plt.figure(figsize=(16, 12))
     ax1 = fig.add_subplot(111)
-    cs = ax1.pcolor(r1, r2, n3, cmap=pyplot.cm.nipy_spectral)
+    cs = ax1.pcolor(r1, r2, n3, cmap=plt.cm.nipy_spectral)
     # cbar = fig.colorbar(cs)
     fig.savefig('img.png', dpi=800)
     print('finished')
