@@ -3,6 +3,7 @@ import math
 from matplotlib import pyplot as plt
 
 import time
+import pathlib
 
 def mandelbrot(c, limit_loop, divergence=2):
     z = c
@@ -46,6 +47,14 @@ def main():
 
     elapsed_time = time.time() - start_time
     print('elapsed_time[s]:', elapsed_time)
+
+    csv_path = pathlib.Path('./result')
+    if csv_path.exists() is False:
+        csv_path.mkdir()
+
+    np.savetxt(csv_path.joinpath('r1.csv'), np.array(r1))
+    np.savetxt(csv_path.joinpath('r2.csv'), np.array(r2))
+    np.savetxt(csv_path.joinpath('n3.csv'), np.array(n3))
 
     ax1 = fig.add_subplot(111)
     cs = ax1.pcolor(r1, r2, n3, cmap=plt.cm.nipy_spectral)
