@@ -48,7 +48,10 @@ def main():
     elapsed_time = time.time() - start_time
     print('elapsed_time[s]:', elapsed_time)
 
-    csv_path = pathlib.Path('./result')
+    s_str ='s_' + str(win_size['re']) + '_' + str(win_size['im'])
+    c_str ='c_' + str(center['re']) + '_' + str(center['im'])
+    param_str = c_str + '_' + s_str 
+    csv_path = pathlib.Path('./result').joinpath(param_str)
     if csv_path.exists() is False:
         csv_path.mkdir()
 
