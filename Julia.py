@@ -56,6 +56,7 @@ def main():
     np.savetxt(csv_path.joinpath('r2.csv'), np.array(r2))
     np.savetxt(csv_path.joinpath('n3.csv'), np.array(n3))
 
+    fig = plt.figure(figsize=(16, 12))
     ax1 = fig.add_subplot(111)
     cs = ax1.pcolor(r1, r2, n3, cmap=plt.cm.nipy_spectral)
     # cbar = fig.colorbar(cs)
