@@ -2,6 +2,7 @@ import numpy as np
 import math
 from matplotlib import pyplot as plt
 
+import time
 
 def mandelbrot(c, limit_loop, divergence=2):
     z = c
@@ -36,12 +37,16 @@ def main():
     r2 = np.r_[s_Im[0]:s_Im[1]:height*1j]
     n3 = np.empty((width, height))
 
+    start_time = time.time()
+
     for i in range(width):
         # n3[i, :] = [julia(r1[j] + r2[i] * 1j, 200, -0.4, 0.6)
         #             for j in range(height)]
         n3[i, :] = [mandelbrot(r1[j] + r2[i] * 1j, 200) for j in range(height)]
 
-    fig = plt.figure(figsize=(16, 12))
+    elapsed_time = time.time() - start_time
+    print('elapsed_time[s]:', elapsed_time)
+
     ax1 = fig.add_subplot(111)
     cs = ax1.pcolor(r1, r2, n3, cmap=plt.cm.nipy_spectral)
     # cbar = fig.colorbar(cs)
