@@ -25,8 +25,8 @@ def divergence_judge(z, c, limit_loop, divergence):
 
 
 def main():
-    win_size = {'re':4.0, 'im':3.0}
-    center = {'re':-1.0, 'im':0.0}
+
+    mode = 1
     
     s_Re = (center['re'] - 0.5*win_size['re'], center['re'] + 0.5*win_size['re'])
     s_Im = (center['im'] - 0.5*win_size['im'], center['im'] + 0.5*win_size['im'])
@@ -41,9 +41,12 @@ def main():
     start_time = time.time()
 
     for i in range(width):
-        # n3[i, :] = [julia(r1[j] + r2[i] * 1j, 200, -0.4, 0.6)
-        #             for j in range(height)]
-        n3[i, :] = [mandelbrot(r1[j] + r2[i] * 1j, 200) for j in range(height)]
+        if mode == 0:
+            n3[i, :] = [julia(r1[j] + r2[i] * 1j, 200, -0.4, 0.6) 
+                        for j in range(height)]
+        else:
+            n3[i, :] = [mandelbrot(r1[j] + r2[i] * 1j, 200) 
+                        for j in range(height)]
 
     elapsed_time = time.time() - start_time
     print('elapsed_time[s]:', elapsed_time)
