@@ -5,6 +5,8 @@ from matplotlib import pyplot as plt
 import time
 import pathlib
 
+from numba import jit
+
 def mandelbrot(c, limit_loop, divergence=2):
     z = c
     return divergence_judge(z, c, limit_loop, divergence)
@@ -15,6 +17,7 @@ def julia(z, limit_loop, real, img, divergence=3):
     return divergence_judge(z, c, limit_loop, divergence)
 
 
+@jit(nopython=True)
 def divergence_judge(z, c, limit_loop, divergence):
     for n in range(limit_loop):
         if abs(z) > divergence:
