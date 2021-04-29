@@ -28,7 +28,6 @@ def main():
 
     csv_paths = [path for path in pathlib.Path('./result').rglob('*') if path.is_dir()]
 
-    print(csv_paths[0].name)
     for csv_path in csv_paths:
         out_path = csv_path.joinpath(csv_path.name + '.png')
         if out_path.exists() is False:
