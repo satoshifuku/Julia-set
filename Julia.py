@@ -30,7 +30,7 @@ def divergence_judge(z, c, limit_loop, divergence):
 def main():
 
     mode = 1
-    
+
     zoom_level = 1.0 * 10.0**(-2)
     win_size = {'re':4.0 * zoom_level, 'im':3.0 * zoom_level}
     center = {'re':0.5, 'im':-0.175}
@@ -68,14 +68,6 @@ def main():
     np.savetxt(csv_path.joinpath('r1.csv'), np.array(r1))
     np.savetxt(csv_path.joinpath('r2.csv'), np.array(r2))
     np.savetxt(csv_path.joinpath('n3.csv'), np.array(n3))
-
-    fig = plt.figure(figsize=(16, 12))
-    ax1 = fig.add_subplot(111)
-    cs = ax1.pcolor(r1, r2, n3, cmap=plt.cm.nipy_spectral)
-    # cbar = fig.colorbar(cs)
-    fig.savefig('img.png', dpi=800)
-    print('finished')
-    # pyplot.show()
 
 if __name__ == '__main__':
     main()
