@@ -31,7 +31,8 @@ def main():
 
     mode = 1
     
-    win_size = {'re':4.0 * w, 'im':3.0 * w}
+    zoom_level = 1.0 * 10.0**(-2)
+    win_size = {'re':4.0 * zoom_level, 'im':3.0 * zoom_level}
     center = {'re':0.5, 'im':-0.175}
     
     s_Re = (center['re'] - 0.5*win_size['re'], center['re'] + 0.5*win_size['re'])
