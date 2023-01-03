@@ -1,3 +1,5 @@
+import sys
+
 import numpy as np
 import math
 from matplotlib import pyplot as plt
@@ -27,9 +29,9 @@ def divergence_judge(z, c, limit_loop, divergence):
     return n
 
 
-def main():
-
-    mode = 1
+def main(arg=0):
+    
+    mode = arg
 
     zoom_level = 1.0 * 10.0**(-2)
     win_size = {'re':4.0 * zoom_level, 'im':3.0 * zoom_level}
@@ -54,7 +56,7 @@ def main():
         else:
             n3[i, :] = [mandelbrot(r1[j] + r2[i] * 1j, 200) 
                         for j in range(height)]
-
+            
     elapsed_time = time.time() - start_time
     print('elapsed_time[s]:', elapsed_time)
 
@@ -70,4 +72,5 @@ def main():
     np.savetxt(csv_path.joinpath('n3.csv'), np.array(n3))
 
 if __name__ == '__main__':
-    main()
+    args = sys.argv
+    main(int(args[1]))
